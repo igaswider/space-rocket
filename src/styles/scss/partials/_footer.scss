@@ -1,0 +1,53 @@
+@import '../_variables.scss';
+
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 5rem;
+  background-color: $footer-bg;
+  .footer__nav {
+    &--ul {
+      font-size: 0.875rem;
+      list-style: none;
+      text-transform: uppercase;
+    }
+    &--orn {
+      color: $footer-par;
+      padding-right: 1rem;
+    }
+    &--li {
+      color: $paragraph-color;
+      display: inline;
+      padding-right: 1rem;
+      & a:link {
+        color: $paragraph-color;
+        text-decoration: none;
+      }
+      & a:visited {
+        color: $paragraph-color;
+        text-decoration: none;
+      }
+      & a:hover {
+        color: $paragraph-color;
+        text-decoration: none;
+      }
+      & a:active {
+        color: $paragraph-color;
+        text-decoration: none;
+      }
+    }
+    &--first-li {
+      color: $footer-par;
+    }
+  }
+
+  .footer__right {
+    &--par {
+      font-size: 0.875rem;
+      color: $footer-par;
+      text-transform: uppercase;
+    }
+  }
+}

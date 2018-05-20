@@ -1,0 +1,63 @@
+.content {
+  margin: 5rem 0;
+  padding: 0 3rem;
+
+  &__date {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #a7a9ac;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 9px;
+  }
+
+  &__name {
+    margin-bottom: 0.5rem;
+    font-size: 2.25rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+  }
+
+  &__timetable {
+    margin-bottom: 2rem;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  .content__details {
+    &--border {
+      padding-left: 1.5rem;
+      border-left: 1.5px dotted $paragraph-color;
+    }
+
+    &--hStyle {
+      padding: 1rem 0;
+      margin: 1rem 0;
+      color: $desert;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 9px;
+      border-bottom: 2px solid $desert;
+    }
+
+    &--par {
+      padding: 1rem 0;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+    }
+
+    &--pStyle {
+      line-height: 2;
+      font-size: 0.875rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    &--phStyle {
+      color: $paragraph-color;
+    }
+  }
+}
