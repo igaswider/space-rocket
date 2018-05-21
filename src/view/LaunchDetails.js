@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import Header from "../components/Header";
 import Data from "../components/DataContainer";
 import MissionLinks from "../components/MissionLinks";
@@ -7,7 +7,7 @@ import { format } from "date-fns";
 
 import axios from "axios";
 
-class LaunchDetails extends React.Component {
+class LaunchDetails extends Component {
   state = {
     dataList: []
   };
@@ -59,7 +59,6 @@ class LaunchDetails extends React.Component {
               }
             ]
           });
-          console.log(this.state.dataList[0].launch, this.state.dataList[0].today)
         })
       )
       .catch(error => {

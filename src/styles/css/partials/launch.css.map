@@ -1,0 +1,10 @@
+{
+	"version": 3,
+	"file": "launch.css",
+	"sources": [
+		"../../scss/partials/launch.scss",
+		"../../scss/_variables.scss"
+	],
+	"names": [],
+	"mappings": "ACAA,eAAe;AAKf,cAAc;ADHd,AAAA,OAAO,CAAC;EACN,gBAAgB,ECGN,OAAO,GDKlB;EANI,AAAD,sBAAO,CAAC;IACN,KAAK,ECJO,OAAO;IDKnB,cAAc,EAAE,GAAG,GACpB"
+}
