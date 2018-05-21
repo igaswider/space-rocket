@@ -5,12 +5,13 @@ import { Grid, Row, Col } from "react-flexbox-grid";
 
 class Launch extends Component  {
 
-  renderLaunches = (props) => {
+  renderLaunches = () => {
     const { launches } = this.props;
+
     return launches.map((element, index) => {
       return (
 
-        <div className="launch__details" key={index}>
+        <div className="launch__details" onClick={this.props.onLaunchClick} key={index}>
           <h3 className="launch__details--date">{format(element.launch_date_local, "DD MMMM YYYY")}</h3>
           <p className="launch__details">
             <span className="launch__details--hStyle">rocket:</span>
