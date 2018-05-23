@@ -2,8 +2,10 @@
   "name": "space-rocket",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://igaswider.github.io/space-rocket/",
   "dependencies": {
     "date-fns": "^1.29.0",
+    "gh-pages": "^1.1.0",
     "node-sass": "^4.9.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -17,6 +19,8 @@
     "sass:build": "node-sass src/styles/scss -o src/styles/css --source-map true",
     "start": "yarn run sass:build && react-scripts start",
     "test": "react-scripts test --env=jsdom",
-    "postinstall": "(cd node_modules/react-flexbox-grid && yarn install && yarn run build)"
+    "postinstall": "(cd node_modules/react-flexbox-grid && yarn install && yarn run build)",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   }
 }
