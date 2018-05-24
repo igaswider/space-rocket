@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import LaunchDetails from './view/LaunchDetails';
 import LaunchesList from './view/LaunchesList';
 
-import axios from "axios";
-
 import './styles/css/App.css';
 
 class App extends Component {
@@ -11,29 +9,21 @@ class App extends Component {
     super(props)
 
     this.state = {
-      viewName: 'list',
-      launches: []
+      viewName: 'list'
     }
 
     this.handleLaunchClick = this.handleLaunchClick.bind(this);
     this.handleBackClick = this.handleBackClick.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('../assets/launches.json')
-      .then(response => {
-        this.setState({ launches: response.data })
-      })
-      .catch(error => console.log('error'))
-  }
 
   get activeViewComponent () {
-    const { viewName, launches } = this.state;
+    const { viewName } = this.state;
 
     switch(viewName) {
       case 'list':
       return (
-        <LaunchesList launches={launches}
+        <LaunchesList
           onLaunchClick={this.handleLaunchClick}
         />
       );
