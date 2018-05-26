@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import Header from "../components/Header";
-import Data from "../components/DataContainer";
-import MissionLinks from "../components/MissionLinks";
-import Footer from "../components/Footer";
-import { format } from "date-fns";
+import React, { Component } from 'react';
+import Header from '../components/Details/Header';
+import Data from '../components/Details/DataContainer';
+import MissionLinks from '../components/Details/MissionLinks';
+import Footer from '../components/Footer';
+import { format } from 'date-fns';
 
-import axios from "axios";
+import axios from 'axios';
 
 class LaunchDetails extends Component {
   state = {
@@ -13,9 +13,9 @@ class LaunchDetails extends Component {
   };
 
   componentDidMount() {
-    const firstRequest = "../assets/launch.json";
-    const secondRequest = "../assets/rocket.json";
-    const thirdRequest = "../assets/launch_site.json";
+    const firstRequest = '../assets/launch.json';
+    const secondRequest = '../assets/rocket.json';
+    const thirdRequest = '../assets/launch_site.json';
 
     axios
       .all([
@@ -32,7 +32,7 @@ class LaunchDetails extends Component {
                 image: response[0].data.links.mission_patch_small,
                 launch: new Date(format(
                   response[0].data.launch_date_local,
-                  "YYYY,MM,DD"
+                  'YYYY,MM,DD'
                 )),
                 today: new Date(),
                 details: response[0].data.details,
@@ -46,7 +46,7 @@ class LaunchDetails extends Component {
                 mass: response[1].data.mass[0],
                 firstFlight: format(
                   response[1].data.first_flight,
-                  "DD MMMM YYYY"
+                  'DD MMMM YYYY'
                 ),
                 country: response[1].data.country,
                 successRate: response[1].data.success_rate_pct,
@@ -62,7 +62,7 @@ class LaunchDetails extends Component {
         })
       )
       .catch(error => {
-        console.log("error");
+        console.log('error');
       });
   }
 

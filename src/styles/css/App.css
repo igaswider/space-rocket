@@ -91,6 +91,7 @@
       background: rgba(0, 0, 0, 0);
       border: 1px solid #fff;
       border-radius: 40px;
+      outline: none;
       text-transform: uppercase;
       font: bolder 0.875rem "Open Sans", sans-serif;
       text-align: center;

@@ -1,7 +1,7 @@
-import React from "react";
-import { Grid, Row, Col } from "react-flexbox-grid";
-import { format } from "date-fns";
-import Counter from "../components/Counter";
+import React from 'react';
+import { Grid, Row, Col } from 'react-flexbox-grid';
+import { format } from 'date-fns';
+import Counter from './Counter';
 
 const Data = props => {
   return (
