@@ -1,63 +1,54 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import HeaderList from '../components/List/HeaderList'
-import Footer from '../components/Footer'
-import { Grid, Row, Col } from 'react-flexbox-grid'
-import { format } from 'date-fns'
+import HeaderList from '../components/List/HeaderList';
+import Footer from '../components/Footer';
+import { format } from 'date-fns';
 
 class LaunchesList extends Component {
   state = {
       filteredNames: '',
       filteredURL: '',
-      url: 'https://api.spacexdata.com/v2/launches?launch_year=2018',
       availableRocketNames: [
         'All rockets',
         'Falcon 1',
         'Falcon 9',
-        'Falcon 10',
         'Falcon Heavy'
       ],
       launches: []
-    }
+    };
 
   componentDidMount() {
-   this.filteredLaunches()
+   this.filteredLaunches();
   }
 
-  filteredLaunches = () => {
-    const { url } = this.state
+  filteredLaunches() {
+    const { filteredNames, filteredURL } = this.state;
+    let url = 'https://api.spacexdata.com/v2/launches?launch_year=2018';
+
+    if(filteredNames !== '') {
+      url = `https://api.spacexdata.com/v2/launches?launch_year=2018&rocket_name=${filteredURL}`
+    }
 
     fetch(url)
       .then(response => {
-        return response.json()
+        return response.json();
       })
       .then(data => {
-        this.setState({ launches: data })
+        this.setState({ launches: data });
       })
-      .catch(error => console.log('error'))
+      .catch(error => console.log('error'));
 
       console.log(url);
   }
 
   handleFilterChange = event => {
-    const { filteredNames, filteredURL } = this.state
+    const { filteredNames } = this.state
     const value = event.target.value;
 
-    if(!value.match(/all.rockets/i)) {
-      this.setState({
-        filteredNames: value,
-        filteredURL: filteredNames.replace(/\s/, '%20'),
-        url: `https://api.spacexdata.com/v2/launches?launch_year=2018&rocket_name=${filteredURL}`
-      })
-    } else {
-      this.setState({
-        filteredNames: '',
-        url: 'https://api.spacexdata.com/v2/launches?launch_year=2018'
-      })
-    }
+    !value.match(/all.rockets/i) ? this.setState({ filteredNames: value, filteredURL: filteredNames.replace(/\s/, '%20') }) : this.setState({ filteredNames: '', filteredURL: 'https://api.spacexdata.com/v2/launches?launch_year=2018' });
 
     this.filteredLaunches()
-  }
+  };
 
   renderLaunches = () => {
       return (
@@ -90,7 +81,7 @@ class LaunchesList extends Component {
 
   renderContent = () => {
 
-    return this.state.launches.length > 0 ? this.renderLaunches() : <div>sorry, no launches found</div>
+    return this.state.launches.length > 0 ? this.renderLaunches() : <div>sorry, no launches</div>
   }
 
   render() {
@@ -103,18 +94,13 @@ class LaunchesList extends Component {
           launches={launches}
         />
         <article className="launch">
-          <Grid fluid>
-            <Row>
-              <Col xs={6} md={6}>
+
                 {this.renderContent()}
-              </Col>
-            </Row>
-          </Grid>
         </article>
         <Footer />
       </div>
-    )
+    );
   }
 }
 
-export default LaunchesList
+export default LaunchesList;

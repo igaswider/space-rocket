@@ -1,14 +1,10 @@
 import React from 'react';
-import { Grid, Row, Col } from 'react-flexbox-grid';
 import { format } from 'date-fns';
 import Counter from './Counter';
 
 const Data = props => {
   return (
     <article className="content">
-      <Grid fluid>
-        <Row>
-          <Col xs={6} md={5}>
             <div className="content__date">
               {format(new Date(), "DD MMMM YYYY")}
             </div>
@@ -17,8 +13,6 @@ const Data = props => {
             <div className="content__image">
               <img alt="" src={props.image} className="content__image" />
             </div>
-          </Col>
-          <Col xs={6} md={7}>
             <div className="content__details">
               <h3 className="content__details--hStyle">details</h3>
               <p className="content__details--par">{props.details}</p>
@@ -27,8 +21,7 @@ const Data = props => {
               <h3 className="content__details content__details--hStyle">
                 rocket
               </h3>
-              <Row>
-                <Col md={6}>
+
                   <div className="content__details--border">
                     <p>
                       <span className="content__details--pStyle content__details--phStyle">
@@ -71,8 +64,6 @@ const Data = props => {
                       </span>
                     </p>
                   </div>
-                </Col>
-                <Col md={6}>
                   <div className="content__details--border">
                     <p>
                       <span className="content__details--pStyle content__details--phStyle">
@@ -107,16 +98,12 @@ const Data = props => {
                       </span>
                     </p>
                   </div>
-                </Col>
-              </Row>
               <p className="content__details--par">{props.description}</p>
             </div>
             <div className="content__details">
               <h3 className="content__details content__details--hStyle">
                 launch pad
               </h3>
-              <Row>
-                <Col md={6}>
                   <div className="content__details--border">
                     <p>
                       <span className="content__details--pStyle content__details--phStyle">
@@ -127,8 +114,6 @@ const Data = props => {
                       </span>
                     </p>
                   </div>
-                </Col>
-                <Col md={6}>
                   <div className="content__details--border">
                     <p>
                       <span className="content__details--pStyle content__details--phStyle">
@@ -139,13 +124,8 @@ const Data = props => {
                       </span>
                     </p>
                   </div>
-                </Col>
-              </Row>
               <p className="content__details--par">{props.launchPadDetails}</p>
             </div>
-          </Col>
-        </Row>
-      </Grid>
     </article>
   );
 };

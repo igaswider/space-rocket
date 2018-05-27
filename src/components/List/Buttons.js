@@ -3,6 +3,7 @@ import React from 'react';
 
 const Buttons = props => {
   const { options } = props;
+  console.log(props);
 
     return (
       <div className="headerList__buttons">
